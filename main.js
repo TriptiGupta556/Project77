@@ -1,16 +1,33 @@
-var images = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5O2AATBIXs60mwszb58gF0lGt8YFWRygpKg&usqp=CAU","https://i.postimg.cc/L6HcYQM0/grand-father.png", "https://i.postimg.cc/wjMnFtMX/father.jpg" , "https://i.postimg.cc/5ymDKL83/bro.jpg", "https://i.postimg.cc/JnL6wtrd/sister.jpg", "https://i.postimg.cc/bw5W5zSK/mother.jpg"];
-            var names = ["Fmaily Book","Ranbir Singh", "Diljeet Singh", "Rocky Singh", "Alia Singh", "Soni Singh"];
-            var i = 0;
-            function update()
-            {
-                i++;
-                var numbers_of_family_member_in_array = 5
-                if(i > numbers_of_family_member_in_array )
-                {
-                    i = 0;
-                }
-                var updatedImage = images[i];
-                var updatedName  = names[i];
-                document.getElementById("family_member_image").src = updatedImage;
-                document.getElementById("family_member_name").innerHTML = updatedName;
-            }
+menu_list_array = ["Veg Margherita Pizza","Chicken Tandoori Pizza","Veg Supreme Pizza","Paneer Tikka Pizza","Deluxe Veggie Pizza","Veg Extravaganza Pizza"];
+    
+    function getmenu(){
+        var htmldata;
+        htmldata="<ol class='menulist'>"
+        menu_list_array.sort();
+        for(var i=0;i<menu_list_array.length;i++){
+            htmldata=htmldata+'<li>' + menu_list_array[i] + '</li>'
+        }
+         htmldata=htmldata+"</ol>"
+         document.getElementById("display_menu").innerHTML = htmldata;
+    }
+
+    function add_item(){
+        var htmldata;
+        var item=document.getElementById("add_item").value;
+        menu_list_array.sort();
+        htmldata="<section class='cards'>"
+        for(var i=0;i<menu_list_array.length;i++){
+
+            htmldata=htmldata+'<div class="card">' +'<img src="images/pizzaImg.png"/>' + menu_list_array[i] + '</div>'
+        }
+          htmldata=htmldata+"</section>"
+         document.getElementById("display_addedmenu").innerHTML = htmldata;
+		
+    }
+
+function add_top(){
+	var item=document.getElementById("add_item").value;
+    menu_list_array.push(item);
+	add_item();
+}
+
